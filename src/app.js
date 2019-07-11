@@ -26,6 +26,12 @@ const removeAll = () => {
   renderOptions();
 };
 
+const onMakeDecision = () => {
+  const randomNum = Math.floor(Math.random() * titles.options.length);
+  const option = titles.options[randomNum];
+  alert(option);
+};
+
 //const numbers = [55, 101, 1000];
 
 const renderOptions = () => {
@@ -36,7 +42,9 @@ const renderOptions = () => {
       <p>
         {titles.options.length > 0 ? "Here are your options" : "No options"}
       </p>
-      <p>{titles.options.length}</p>
+      <button disabled={titles.options.length === 0} onClick={onMakeDecision}>
+        What should I do?
+      </button>
       <button onClick={removeAll}>Remove All</button>
 
       <ol>
