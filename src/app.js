@@ -26,6 +26,8 @@ const removeAll = () => {
   renderOptions();
 };
 
+//const numbers = [55, 101, 1000];
+
 const renderOptions = () => {
   const template = (
     <div>
@@ -36,9 +38,11 @@ const renderOptions = () => {
       </p>
       <p>{titles.options.length}</p>
       <button onClick={removeAll}>Remove All</button>
+
       <ol>
-        <li>Item one</li>
-        <li>Item two</li>
+        {titles.options.map(option => {
+          return <li key={option}>{option}</li>;
+        })}
       </ol>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option" />
